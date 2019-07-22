@@ -14,10 +14,9 @@ deploy:
   app: "simple-react-node-with-docker"
   env: "SimpleReactNodeWithDocker-env"
   bucket_name: "elasticbeanstalk-us-east-2-601657596403"
-  # bucket_path: "simple-react-node-with-docker"
-  edge: true
   on:
     branch: master
-  access_key_id: $AWS_ACCESS_KEY
+  access_key_id:
+    secure: "$AWS_ACCESS_KEY"
   secret_access_key:
     secure: "$AWS_SECRET_KEY"
