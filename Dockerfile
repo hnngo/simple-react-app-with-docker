@@ -16,15 +16,16 @@ RUN n stable
 WORKDIR /app
 
 # Install node_modules
-COPY package.json .
+COPY package*.json ./
 RUN npm install
-COPY . .
+COPY ./ ./
 
 # Build app
 RUN npm run build
 
 # Run pahse
 FROM nginx
+EXPOSE 80
 
 # Copy the build files from build phase to run phase
 COPY --from=builder /app/build /usr/share/nginx/html
